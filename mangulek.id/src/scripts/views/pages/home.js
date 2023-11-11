@@ -1,31 +1,28 @@
 import RestaurantSource from '../../data/restaurant-source';
 // eslint-disable-next-line no-unused-vars
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { templateOfItemRestaurant } from '../templates/template-creator';
 
 const Home = {
   async render() {
-    return ` <hero></hero>
+    return ` <hero class="image-hero"><img src="./hero-image_4.jpg"></hero>
     <section class="content">
-      <h2 class="content__heading">Explore Restaurant</h2>
-      <div id="restaurants" class="restaurants">
-        <div class="restaurants__list" id="restaurantsList">
+      <h2 class="caption-content">Let's start searching for your best restaurant</h2>
+        <div class="resto_list" id="restaurantsList">
           ${await this._renderRestaurants()}
         </div>
-      </div>
     </section>
       `;
   },
 
   async _renderRestaurants() {
-    const restaurants = await RestaurantSource.daftarRestoran();
+    const restaurants = await RestaurantSource.listRestaurant();
     return restaurants
-      .map((restaurant) => createRestaurantItemTemplate(restaurant))
+      .map((restaurant) => templateOfItemRestaurant(restaurant))
       .join('');
   },
 
   // eslint-disable-next-line no-empty-function
   async afterRender() {
-    // eslint-disable-next-line no-unused-vars
     const restaurants = await RestaurantSource.listRestaurant();
     return restaurants;
   },
