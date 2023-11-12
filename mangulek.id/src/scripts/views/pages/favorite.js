@@ -1,12 +1,22 @@
+import FavoriteRestoIdb from '../../data/favorite-resto-idb';
+import { templateOfItemRestaurant } from '../templates/template-creator';
+
 const Favorite = {
   async render() {
     return `
-        <h2>Upcoming page</h2>
+    <section class="content">
+      <div class="resto_list" id="favList"></div>
+  </section>
       `;
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const fav = await FavoriteRestoIdb.getAllRestaurant();
+    const favContainer = document.querySelector('#favList');
+
+    fav.forEach((restaurant) => {
+      favContainer.innerHTML += templateOfItemRestaurant(restaurant);
+    });
   },
 };
 

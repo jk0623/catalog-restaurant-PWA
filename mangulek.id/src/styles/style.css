@@ -82,13 +82,16 @@
   */
    
   main {
-    padding: 32px;
-    flex: 1;
+  flex-grow: 1;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   }
    
   .content {
     margin: 0 auto;
-    min-height: 100%;
+    max-width: 100%;
+    width: 100%;
   }
    
   .content .content__heading {
@@ -100,40 +103,55 @@
     height: auto;
     
   }
+
+
+.caption-content {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; 
+  font-weight: bold; 
+  line-height: 1.5;
+  margin: 75px 0; 
+}
    
+/* restaurants */
+
+.resto_list{
+display: grid;
+grid-template-columns: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 8px;
+padding: 0px 50px;
+max-width: 100%;
+}
+  
    
   /*
-    Movies
+    resto Item
   */
    
-  .movies {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin: 32px 0;
-  }
-   
-   
-  /*
-    Movie Item
-  */
-   
-  .movie-item {
-    width: 100%;
+  .card-item-resto {
+    max-width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
+    
   }
    
-  .movie-item__header {
+  .card-item_header {
     position: relative;
   }
    
-  .movie-item .movie-item__header .movie-item__header__poster {
+  .card-item-resto .card-item_header .resto-item_header_poster {
     width: 100%;
+    width: 100%;
+    height: 200px; /* Atur tinggi sesuai dengan kebutuhan Anda */
+    object-fit: cover; 
+    
   }
    
-  .movie-item .movie-item__header .movie-item__header__rating {
+  .card-item-resto .card-item_header .resto-item_header_rating {
     position: absolute;
     padding: 8px;
     bottom: 20px;
@@ -143,37 +161,54 @@
     color: white;
   }
    
-  .movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
+  .card-item-resto .card-item_header .resto-item_header_rating .resto-item_header_rating_score {
+    margin-left: 10px;
+  }
+
+  .card-item-resto .card-item_header .resto-item_header_city {
+    position: absolute;
+    padding: 8px;
+    bottom: 20px;
+    right: 0;   
+    display: inline-block;
+    background-color: black;
+    color: white;
+  }
+
+  .card-item-resto .card-item_header .resto-item_header_city .resto-item_header_city_name {
     margin-left: 10px;
   }
    
-  .movie-item .movie-item__content {
+  .card-item-resto .resto-item_content {
     padding: 16px;
   }
    
-  .movie-item .movie-item__content h3 {
+  .card-item-resto .resto-item_content h3 {
     margin: 0 0 10px 0;
   }
    
-  .movie-item .movie-item__content h3 a {
+  .card-item-resto .resto-item__content h3 a {
     color: #db0000;
     text-decoration: none;
   }
    
-  .movie-item .movie-item__content p {
+  .card-item-resto .resto-item__content p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4; /* number of lines to show */
     -webkit-box-orient: vertical;
+    width: 100%;
+    text-align: justify;
+    white-space: nowrap; 
   }
    
    
   /*
-    Movie
+    restaurant
   */
    
-  .movie {
+  /* .restaurant {
     margin: 0 auto;
     width: 100%;
     max-width: 800px;
@@ -182,16 +217,186 @@
     gap: 18px 16px;
   }
    
-  .movie .movie__poster {
+  .restaurant .resto_poster {
     width: 100%;
     max-width: 400px;
   }
    
-  .movie .movie__info h4 {
+  .restauarant .movie__info h4 {
     margin: 8px 0;
   }
-   
-   
+    */
+
+    /* Basic styling for the card container */
+.resto_container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Styling for restaurant title */
+.resto-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Styling for restaurant image */
+.restaurant__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Styling for restaurant information section */
+.restaurant__info {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* Styling for restaurant information headers */
+.restaurant__info h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styling for restaurant information details */
+.restaurant__info h4 {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.restaurant__info p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styling for restaurant overview section */
+.restaurant__overview h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.restaurant__overview p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Styling for restaurant menu section */
+.restaurant__menu h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Styling for menu lists */
+.menu__foods, .menu__drinks {
+  margin-bottom: 15px;
+}
+
+.menu__foods h4, .menu__drinks h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.menu__foods ul, .menu__drinks ul {
+  list-style-type: none;
+}
+
+.menu__foods li, .menu__drinks li {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Styling for restaurant reviews section */
+.restaurant__reviews h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Styling for customer reviews */
+.customer__reviews {
+  margin-bottom: 15px;
+}
+
+/* Styling for review form */
+#reviewForm {
+  margin-top: 15px;
+}
+
+#reviewForm h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form__group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+    /*
+  Like
+*/
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
    
   /*
     Footer
@@ -203,7 +408,7 @@
     text-align: center;
     padding: 20px 0;
     font-family: 'Poppins';
-    position: relative; /* Menambahkan posisi relatif untuk mengatur jarak elemen lain */
+    /* Menambahkan posisi relatif untuk mengatur jarak elemen lain */
   }
   
   .social-icons {
@@ -248,3 +453,23 @@
     min-height: 44px;
   }
   
+
+  /* skip konten */
+  .skip-content {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: -1;
+    
+  }
+  
+  .skip-content:focus {
+    position: relative;
+    top: auto;
+    left: auto;
+    background-color: #007acc; 
+    color: #fff; 
+    padding: 5px 10px; 
+    z-index: 1000; 
+    text-align: center;
+  }
